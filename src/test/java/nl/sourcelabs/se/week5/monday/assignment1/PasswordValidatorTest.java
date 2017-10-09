@@ -14,70 +14,56 @@ public class PasswordValidatorTest {
     @Test
     public void goodPassword() {
 
-        PasswordValidator validator = new PasswordValidator();
-
-        assertTrue("Password is a match", validator.isValid("P@ssword1"));
+        assertTrue("Password is a match", PasswordValidator.isValid("P@ssword1"));
 
     }
 
     @Test
     public void passwordTooShort() {
 
-        PasswordValidator validator = new PasswordValidator();
-
-        assertFalse("Passwords needs to be at least 8 characters", validator.isValid("Pswrd1@"));
+        assertFalse("Passwords needs to be at least 8 characters", PasswordValidator.isValid("Pswrd1@"));
 
     }
 
     @Test
     public void noNumberInPassword() {
 
-        PasswordValidator validator = new PasswordValidator();
-
-        assertFalse("Passwords needs to contain a number", validator.isValid("P@ssword"));
+        assertFalse("Passwords needs to contain a number", PasswordValidator.isValid("P@ssword"));
 
     }
 
     @Test
     public void noSpecialCharacter() {
 
-        PasswordValidator validator = new PasswordValidator();
-
-        assertFalse("Password must contain valid special character", validator.isValid("Password1"));
+        assertFalse("Password must contain valid special character", PasswordValidator.isValid("Password1"));
 
     }
 
     @Test
     public void wrongSpecialCharacter() {
 
-        PasswordValidator validator = new PasswordValidator();
-
-        assertFalse("Passwords contains illegal special character", validator.isValid("Password1!"));
+        assertFalse("Passwords contains illegal special character", PasswordValidator.isValid("Password1!"));
 
     }
 
     @Test
     public void allSpecialCharacters() {
 
-        PasswordValidator validator = new PasswordValidator();
-
-        assertTrue("This password contains valid special characters: @", validator.isValid("Password1@"));
-        assertTrue("This password contains valid special characters: #", validator.isValid("Password1#"));
-        assertTrue("This password contains valid special characters: $", validator.isValid("Password1$"));
-        assertTrue("This password contains valid special characters: %", validator.isValid("Password1%"));
-        assertTrue("This password contains valid special characters: ^", validator.isValid("Password1^"));
-        assertTrue("This password contains valid special characters: &", validator.isValid("Password1&"));
-        assertTrue("This password contains valid special characters: +", validator.isValid("Password1+"));
-        assertTrue("This password contains valid special characters: =", validator.isValid("Password1="));
+        assertTrue("This password contains valid special characters: @", PasswordValidator.isValid("Password1@"));
+        assertTrue("This password contains valid special characters: #", PasswordValidator.isValid("Password1#"));
+        assertTrue("This password contains valid special characters: $", PasswordValidator.isValid("Password1$"));
+        assertTrue("This password contains valid special characters: %", PasswordValidator.isValid("Password1%"));
+        assertTrue("This password contains valid special characters: ^", PasswordValidator.isValid("Password1^"));
+        assertTrue("This password contains valid special characters: &", PasswordValidator.isValid("Password1&"));
+        assertTrue("This password contains valid special characters: +", PasswordValidator.isValid("Password1+"));
+        assertTrue("This password contains valid special characters: =", PasswordValidator.isValid("Password1="));
 
     }
 
     @Test
     public void passwordTooLong() {
 
-        PasswordValidator validator = new PasswordValidator();
-
-        assertFalse("Passwords should be smaller than 20 character", validator.isValid("P@ssword1P@ssword1P@ssword1P@ssword1"));
+        assertFalse("Passwords should be smaller than 20 character", PasswordValidator.isValid("P@ssword1P@ssword1P@ssword1P@ssword1"));
 
     }
 
@@ -85,9 +71,7 @@ public class PasswordValidatorTest {
     @Test
     public void passwordNull() {
 
-        PasswordValidator validator = new PasswordValidator();
-
-        assertFalse(validator.isValid(null));
+        assertFalse(PasswordValidator.isValid(null));
 
     }
 
